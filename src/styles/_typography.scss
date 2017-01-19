@@ -1,0 +1,75 @@
+/**
+  core-style-typography
+*/
+
+//
+// Squares
+//
+.s16 {
+  width: 16px;
+  height: 16px;
+}
+
+.s24 {
+  width: 24px;
+  height: 24px;
+}
+
+.s32 {
+  width: 32px;
+  height: 32px;
+}
+
+.s48 {
+  width: 48px;
+  height: 48px;
+}
+
+.s64 {
+  width: 64px;
+  height: 64px;
+}
+
+.s128 {
+  width: 128px;
+  height: 128px;
+}
+
+.s200 {
+  width: 200px;
+  height: 200px;
+}
+
+//
+// Text colors
+//
+.xpnd-text-white {
+  color: $color-white
+}
+
+.xpnd-text-brand {
+  color: $color-brand
+}
+
+.xpnd-icon-png {
+  margin: 5px auto auto;
+  padding: 0;
+  display: inline-block;
+  background-repeat: no-repeat no-repeat;
+  pointer-events: none;
+}
+
+.xpnd-center {
+  text-align: center;
+}
+
+.xpnd-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.xpnd-label {
+  color: rgba(0,0,0,.26);
+  display: inline;
+}

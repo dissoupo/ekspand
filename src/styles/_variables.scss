@@ -1,1 +1,62 @@
-$nav-button-color: #00838F;
+// Function
+//-- Must be defined before variables
+@function rem($multiplier) {
+  $font-size: 10px;
+  @return $multiplier * $font-size;
+}
+
+//
+// Paths
+//
+
+$imagePath: '../assets/img';
+
+//
+// Layouts
+//
+
+$layout-breakpoint-xs:     480px !default;
+$layout-breakpoint-sm:     600px !default;
+$layout-breakpoint-md:     960px !default;
+$layout-breakpoint-lg:     1200px !default;
+
+//
+// Fonts
+//
+
+$display-4-font-size-base: rem(11.20) !default;
+$display-3-font-size-base: rem(5.600) !default;
+$display-2-font-size-base: rem(4.500) !default;
+$display-1-font-size-base: rem(3.400) !default;
+$headline-font-size-base:  rem(2.400) !default;
+$title-font-size-base:     rem(2.000) !default;
+$subhead-font-size-base:   rem(1.600) !default;
+
+$body-font-size-base:      rem(1.400) !default;
+$caption-font-size-base:   rem(1.200) !default;
+
+//
+// Colors
+//
+
+$body-color: #1f444b;
+$body-background-color: rgba(233, 233, 233, 1);
+$body-secondary-background-color: #ffffff;
+
+$page-toolbar-color: #ffffff;
+$page-toolbar-background-brand: #ef6c00;
+$page-toolbar-background-edit: #92cef0;
+
+$color-white: #ffffff;
+$color-brand: #ef6c00;
+
+
+//
+// Height
+//
+
+$baseline-grid:         8px !default;
+
+$toolbar-height:        $baseline-grid * 8;
+$toolbar-height-mobile-portrait: $baseline-grid * 7 !default;
+$toolbar-height-mobile-landscape: $baseline-grid * 6 !default;

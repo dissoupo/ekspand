@@ -1,6 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   NgModule,
   Injectable,
@@ -14,7 +15,11 @@ import {
   createInputTransfer
 } from '@angularclass/hmr';
 import {
-  MaterialModule
+  MaterialModule,
+  MdIconModule,
+  MdIconRegistry,
+  MdIcon,
+  MdProgressBar
 } from '@angular/material';
 import {
   trace,
@@ -23,6 +28,8 @@ import {
   UIView,
   UIRouter
 } from 'ui-router-ng2';
+
+import 'hammerjs';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -38,13 +45,15 @@ import { AboutComponent } from './app-main-page/views/about';
 import { AppNavigation } from './app-main-page/navigation';
 import { AppToolbar } from './app-main-page/toolbar';
 import { AppQuickPanel } from './app-main-page/quick-panel';
+import { AppComponent } from './app.component';
 
 import '../styles/styles.scss';
 import '../styles/headings.scss';
 
 // Application wide providers
 const APP_PROVIDERS = [
-  AppState
+  AppState,
+  MdIconRegistry
 ];
 
 type StoreType = {
@@ -56,7 +65,7 @@ type StoreType = {
 // Enables tracing (check the console) of:
 // - TRANSITION transition start, redirect, success, error, ignored
 // - VIEWCONFIG ui-view component creation/destruction and viewconfig de/activation
-trace.enable(Category.TRANSITION, /*Category.HOOK, Category.UIVIEW,*/ Category.VIEWCONFIG);
+//trace.enable(Category.TRANSITION, /*Category.HOOK, Category.UIVIEW,*/ Category.VIEWCONFIG);
 
 /**
  * Create your own configuration class (if necessary) for any root/feature/lazy module.
@@ -81,34 +90,6 @@ export class MyRootUIRouterConfig {
 }
 */
 
-@Component({
-  selector: 'app',
-  styles: [`
-  `],
-  template: `
-    <div ui-view="main" class="tw-view tw-column">
-      <!-- show loading until the state is resolved-->
-      <div layout="column" layout-align="center center">
-        <!--md-progress-linear md-mode="query"></md-progress-linear-->
-        <!--div><md-icon md-svg-icon="tellwise" class="s128 tw-text-tellwise"></md-icon></div-->
-        <div>loading ui-view...</div>
-      </div>
-    </div>
-`
-})
-class AppComponent implements OnInit {
-
-  constructor(
-    public uiRouter: UIRouter
-  ) {
-    console.log('AppComponent');
-  }
-
-  public ngOnInit() {
-    console.log('AppComponent.ngOnInit');
-  }
-}
-
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -127,7 +108,9 @@ class AppComponent implements OnInit {
     BrowserModule,
     FormsModule,
     HttpModule,
+    MdIconModule,
     MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot(),
     UIRouterModule.forRoot({
       states: [
         {
@@ -162,7 +145,7 @@ class AppComponent implements OnInit {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
   ]
 })
 export class AppModule {
@@ -170,8 +153,22 @@ export class AppModule {
   constructor(
     public appRef: ApplicationRef,
     public appState: AppState,
-    public uiRouter: UIRouter
+    public uiRouter: UIRouter,
+    public mdIconRegistry: MdIconRegistry,
+    public sanitizer: DomSanitizer
   ) {
+
+    mdIconRegistry
+      .addSvgIcon('brand', sanitizer.bypassSecurityTrustResourceUrl('/assets/img/logos/ekspand_logo_64x64.svg'))
+      .addSvgIconSetInNamespace('action', sanitizer.bypassSecurityTrustResourceUrl('/assets/icon/sets/svg-sprite-action.svg'))
+      .addSvgIconSetInNamespace('communication', sanitizer.bypassSecurityTrustResourceUrl('/assets/icon/sets/svg-sprite-communication.svg'))
+      .addSvgIconSetInNamespace('navigation', sanitizer.bypassSecurityTrustResourceUrl('/assets/icon/sets/svg-sprite-navigation.svg'))
+      .addSvgIconSetInNamespace('social', sanitizer.bypassSecurityTrustResourceUrl('/assets/icon/sets/svg-sprite-social.svg'))
+      .addSvgIconSetInNamespace('toggle', sanitizer.bypassSecurityTrustResourceUrl('/assets/icon/sets/svg-sprite-toggle.svg'))
+      .addSvgIconSetInNamespace('content', sanitizer.bypassSecurityTrustResourceUrl('/assets/icon/sets/svg-sprite-content.svg'))
+      .addSvgIconSetInNamespace('file', sanitizer.bypassSecurityTrustResourceUrl('/assets/icon/sets/svg-sprite-file.svg'))
+      .addSvgIconSetInNamespace('image', sanitizer.bypassSecurityTrustResourceUrl('/assets/icon/sets/svg-sprite-image.svg'));
+
     console.log('AppModule');
   }
 
@@ -213,4 +210,3 @@ export class AppModule {
   }
 
 }
-

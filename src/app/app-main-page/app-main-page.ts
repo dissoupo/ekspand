@@ -10,10 +10,9 @@ import {MdSidenav, MdToolbar, MdButton} from '@angular/material';
   styles: [`
   `],
   template: `
-  <h1>Main</h1>
   <div ui-view="navigation"></div>
   
-  <div class="tw-page-content tw-background-light tw-column">
+  <div class="xpnd-page-content xpnd-background-light xpnd-column">
     <div ui-view="toolbar"
         id="vertical-navigation-toolbar"
         ng-hide="$ctrl.state.editMode">
@@ -22,12 +21,12 @@ import {MdSidenav, MdToolbar, MdButton} from '@angular/material';
       
     <div ui-view="content"
         id="vertical-navigation-content"
-        class="tw-view tw-column tw-scrollable"
-        tw-scroll
+        class="xpnd-view xpnd-column xpnd-scrollable"
+        xpnd-scroll
         ng-hide="$ctrl.state.editMode">
     </div>
   
-    <div tw-edit-container tw-scroll class="tw-view tw-container tw-column tw-scrollable" ng-show="$ctrl.state.editMode"></div>
+    <div xpnd-edit-container xpnd-scroll class="xpnd-view xpnd-container xpnd-column xpnd-scrollable" ng-show="$ctrl.state.editMode"></div>
   </div>
   
   <div ui-view="quickPanel"></div>

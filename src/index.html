@@ -18,18 +18,18 @@
   <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
 </head>
 
-<body class="xn-body">
+<body class="xpnd-body">
 
-  <app></app>
+  <xpnd-app></xpnd-app>
 
-  <% if (htmlWebpackPlugin.options.metadata.GoogleAnalytics) { %>
+  <% if (htmlWebpackPlugin.options.metadata.googleAnalytics && !htmlWebpackPlugin.options.metadata.isDevServer) { %>
   <script>
     (function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=r;A[l]=A[l]||function(){
     (A[l].q=A[l].q||[]).push(arguments)},A[l].l=1*new Date();a=n.createElement(g),
     r=n.getElementsByTagName(g)[0];a.async=1;a.src=u;r.parentNode.insertBefore(a,r)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', <%= htmlWebpackPlugin.options.metadata.GoogleAnalytics %>, 'auto');
+    ga('create', '<%= htmlWebpackPlugin.options.metadata.googleAnalytics %>', 'auto');
     ga('send', 'pageview');
   </script>
   <% } %>

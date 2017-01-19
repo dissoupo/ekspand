@@ -6,6 +6,7 @@ This seed repo is forked from [AngularClass](https://angularclass.com)
 > An Angular 2 starter kit featuring [Angular 2](https://angular.io) and [Angular 4](https://github.com/angular/angular/tree/4.0.0-beta.0) ([Ahead of Time Compile](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html), 
 [UI-Router](https://ui-router.github.io/), 
 [Material2](https://github.com/angular/material2),
+[Flex Layout](https://github.com/angular/flex-layout),
 [Forms](https://angular.io/docs/ts/latest/guide/forms.html),
 [Http](https://angular.io/docs/ts/latest/guide/server-communication.html),
 [Services](https://gist.github.com/gdi2290/634101fec1671ee12b3e#_follow_@AngularClass_on_twitter),

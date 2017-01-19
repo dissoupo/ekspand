@@ -165,6 +165,7 @@ module.exports = function (options) {
             '@angular/material',
             '@angularclass/hmr',
             'rxjs',
+            'hammerjs',
             'ui-router-ng2',
             'ui-router-visualizer'
           ]

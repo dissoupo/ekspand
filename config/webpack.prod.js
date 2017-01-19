@@ -28,8 +28,7 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   host: HOST,
   port: PORT,
   ENV: ENV,
-  HMR: false,
-  GoogleAnalytics: null
+  HMR: false
 });
 
 module.exports = function (env) {

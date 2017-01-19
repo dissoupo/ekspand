@@ -29,6 +29,7 @@ const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
   title: 'Angular2 Webpack Starter',
   baseUrl: '/',
+  googleAnalytics: null,
   isDevServer: helpers.isWebpackDevServer()
 };
 
@@ -59,9 +60,8 @@ module.exports = function (options) {
     entry: {
 
       'polyfills': './src/polyfills.browser.ts',
-      'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
-
+      'main': AOT ? './src/main.browser.aot.ts' :
+                    './src/main.browser.ts'
     },
 
     /*

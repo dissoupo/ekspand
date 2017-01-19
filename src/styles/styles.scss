@@ -1,19 +1,280 @@
 /* this file will be extracted to main dist folder and is imported in index.html */
 /* This file is for setting global styles  */
 @import 'variables';
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+@import 'typography';
 
-nav {
-  margin-top: 16px;
+html, body, material-app, md-sidenav-container {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fcfcfc;
 }
 
-nav a {
-  background-color: $nav-button-color;
-  color: white;
-  padding: 8px 16px;
+.xpnd-body {
+  margin:0;
+  display: flex;
+  height:100%;
+  min-height:100%;
+  flex-direction: column;
+}
+
+.xpnd-view {
+  position: relative;
+  height:100%;
+  //min-height:100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  flex: 1 1 100%;
+}
+
+.xpnd-page-toolbar {
+  color: $page-toolbar-color !important;
+  //z-index: 3;
+
+  &.xpnd-brand {
+    background: $page-toolbar-background-brand !important;
+  }
+
+  &.xpnd-edit-mode {
+    background: $page-toolbar-background-edit !important;
+  }
+
+  flex-shrink: 0;
+}
+
+
+md-toolbar.xpnd-page-toolbar {
+  .md-button:not(.md-raised),
+  .md-button:not([disabled]) md-icon,
+  md-icon {
+    // TODO: ERIC: variable
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+
+.xpnd-row {
+  flex-direction: row;
+}
+
+.xpnd-column {
+  flex-direction: column;
+}
+
+.xpnd-page-content {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+
+  .xpnd-page-panel-left {
+    width: 304px;
+    min-width: 304px;
+    max-width: 304px;
+  }
+
+  .xpnd-page-panel-right {
+
+  }
+}
+
+.xpnd-container {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 0 100%;
+
+  @media only screen and (max-width: $layout-breakpoint-lg) {
+    padding: 8px 8px 32px;
+  }
+
+  @media only screen and (min-width: $layout-breakpoint-lg) {
+    min-width: $layout-breakpoint-lg - 4*$baseline-grid;
+    max-width: $layout-breakpoint-lg - 4*$baseline-grid;
+    padding: 8px;
+    margin: 0 auto; // center
+  }
+}
+
+.xpnd-toolbar-container {
+  @media only screen and (min-width: $layout-breakpoint-lg) {
+    min-width: $layout-breakpoint-lg - 4*$baseline-grid;
+    max-width: $layout-breakpoint-lg - 4*$baseline-grid;
+    margin: 0 auto; // center
+  }
+}
+
+.xpnd-no-shrink {
+  flex-shrink: 0;
+}
+
+.xpnd-cursor-point {
+  cursor: pointer;
+}
+
+xpnd-link,
+.xpnd-link {
+  cursor: pointer;
+  // TODO: ERIC: variable
+  color: #006fb2;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.xpnd-glow-z1 {
+  box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.23),
+  0 1px 1px 0 rgba(0, 0, 0, 0.14),
+  0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.xpnd-sidenav {
+  width: 272px;
+  min-width: 272px;
+  max-width: 272px;
+
+  box-shadow: 2px 0 1px rgba(0, 0, 0, 0.2);
+  // TODO: ERIC: variable
+  background-color: #f0f0f0;
+}
+
+.xpnd-nav-header {
+  //border-bottom: 1px solid #267ED5;
+  flex-shrink: 0;
+  z-index: 2;
+
+  > md-icon {
+    margin: 0 8px;
+  }
+}
+
+.xpnd-branding {
+  display: inline-block;
+  padding: $baseline-grid;
+
+  > img {
+    text-align: center;
+    margin: auto;
+
+    // TODO: media query because $toolbar-height is changing
+    max-height: $toolbar-height - 2 * $baseline-grid;
+    max-width: $toolbar-height - 2 * $baseline-grid;
+  }
+
+  > span {
+    margin-left: $baseline-grid;
+    line-height: $toolbar-height;
+  }
+}
+
+/*
+.xpnd-splash-background {
+  background-repeat: no-repeat;
+  //background-size: 100% auto;
+  background-position: center center;
+  background-size: cover;
+
+  // Handle mobile portrait
+  @media only screen and (min-width: 0) and (max-width: $layout-breakpoint-sm) and (orientation: portrait) {
+    background-image: url(#{$imagePath}/splash-sm.jpg);
+  }
+
+  // Handle mobile landscape
+  @media only screen and (min-width: 0) and (max-width: $layout-breakpoint-sm) and (orientation: landscape) {
+    background-image: url(#{$imagePath}/splash-md.jpg);
+  }
+
+  // SM - LG
+  @media only screen and (min-width: $layout-breakpoint-sm) and (max-width: $layout-breakpoint-lg) {
+    background-image: url(#{$imagePath}/splash-md.jpg);
+  }
+
+  // LG+
+  @media only screen and (min-width: $layout-breakpoint-lg) {
+    background-image: url(#{$imagePath}/splash-lg.jpg);
+  }
+}
+*/
+
+xpnd-popup-container {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: row-reverse;
+  align-content: flex-end;
+  align-items: flex-end;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  max-height: calc(100vh - 0px);
+  padding: 8px;
+  z-index: 2;
+
+  @media only screen and (min-width: 0) and (max-width: $layout-breakpoint-sm) {
+    padding: 0;
+    //max-height: calc(100vh - 0px);
+    max-width: calc(100vw - 0px);
+  }
+}
+
+.xpnd-border-top-light {
+  border-top: solid 1px #ededed;
+}
+
+.xpnd-border-bottom-light {
+  border-bottom: solid 1px #ededed;
+}
+
+.xpnd-whiteframe-2 {
+  background-color: #ffffff;
+  color: #000000;
+  margin-bottom: 16px;
+
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.xpnd-no-errors-spacer {
+  .md-errors-spacer {
+    min-height: 0 !important;
+    display: none;
+  }
+}
+
+.xpnd-callout {
   margin: 8px;
-  vertical-align: middle;
-  line-height: 1.25;
-  text-align: center;
-  text-decoration: none;
   border-radius: 4px;
+  border: 1px solid #cfcfcf;
+
+  &:not(.xpnd-xs) {
+    padding: 16px;
+  }
+
+  &.xpnd-xs {
+    padding: 8px;
+  }
+
+  &.xpnd-callout-info {
+    background-color: rgb(234, 246, 255);
+    color: #000000;
+  }
+
+  &.xpnd-callout-warn {
+    background-color: rgb(255, 235, 225);
+    color: #000000;
+  }
+}
+
+.xpnd-help {
+  margin: 8px;
+  color: blue;
+
+  &:not(.xpnd-xs) {
+    padding: 16px;
+    font-size: small;
+  }
+
+  &.xpnd-xs {
+    padding: 8px;
+    font-size: x-small;
+  }
 }
