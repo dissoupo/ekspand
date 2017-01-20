@@ -5,15 +5,15 @@ import {
 import { UIRouter } from 'ui-router-ng2';
 
 @Component({
-  selector: 'xpnd-app',
+  selector: 'ks-app',
   styles: [`
   `],
   template: `
-    <div ui-view="main" class="xpnd-view xpnd-column">
+    <div ui-view="main" class="ks-view ks-column">
       <!-- show loading until the state is resolved -->
       <md-progress-bar mode="indeterminate" aria-label="loading"></md-progress-bar>
       <div fxLayout="column" fxLayoutAlign="center center">                
-        <div><md-icon svgIcon="brand" class="s64 xpnd-text-brand"></md-icon></div>
+        <div><md-icon svgIcon="brand" class="s64 ks-text-brand"></md-icon></div>
         <div>loading...</div>
       </div>      
     </div>

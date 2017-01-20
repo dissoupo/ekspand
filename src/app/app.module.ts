@@ -18,8 +18,6 @@ import {
   MaterialModule,
   MdIconModule,
   MdIconRegistry,
-  MdIcon,
-  MdProgressBar
 } from '@angular/material';
 import {
   trace,

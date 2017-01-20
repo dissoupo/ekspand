@@ -4,33 +4,24 @@ import {
 } from '@angular/core';
 import {UIRouter} from 'ui-router-ng2';
 import {MdTab} from '@angular/material';
+import {AppMainPage} from '../app-main-page';
 
 @Component({
-  //selector: 'app-quick-panel',
+  selector: 'app-quick-panel',
   styles: [`
   `],
   template: `
-<div>
-  Quick Panel
-</div>
+<h4>Panel</h4>
 `
 })
 export class AppQuickPanel implements OnInit {
 
-  public localState: any;
   constructor(
-    public uiRouter: UIRouter
+    public uiRouter: UIRouter,
+    public parent: AppMainPage
   ) {}
 
   public ngOnInit() {
-    /*
-    this.route
-      .data
-      .subscribe((data: any) => {
-        // your resolved data from route
-        this.localState = data.yourData;
-      });
-*/
-    console.log('AppQuickPanel');
+    console.log('AppQuickPanel.ngOnInit');
   }
 }

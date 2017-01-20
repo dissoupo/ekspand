@@ -43,15 +43,15 @@
 //
 // Text colors
 //
-.xpnd-text-white {
+.ks-text-white {
   color: $color-white
 }
 
-.xpnd-text-brand {
+.ks-text-brand {
   color: $color-brand
 }
 
-.xpnd-icon-png {
+.ks-icon-png {
   margin: 5px auto auto;
   padding: 0;
   display: inline-block;
@@ -59,17 +59,17 @@
   pointer-events: none;
 }
 
-.xpnd-center {
+.ks-center {
   text-align: center;
 }
 
-.xpnd-ellipsis {
+.ks-ellipsis {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.xpnd-label {
+.ks-label {
   color: rgba(0,0,0,.26);
   display: inline;
 }

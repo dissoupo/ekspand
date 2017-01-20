@@ -4,31 +4,32 @@ import {
 } from '@angular/core';
 import {UIRouter} from 'ui-router-ng2';
 import {MdToolbar, MdButton} from '@angular/material';
+import {AppMainPage} from '../app-main-page';
 
 @Component({
-  //selector: 'app-toolbar',
+  selector: 'app-toolbar',
   styles: [`
   `],
   template: `
-<div>Toolbar</div>
+<md-toolbar class="ks-glow-z1 ks-page-toolbar ks-brand">
+  <button md-icon-button aria-label="Navigation" (click)="parent.navContainer?.start?.open()">
+    <md-icon svgIcon="navigation:ic_menu_24px"></md-icon>
+  </button> 
+  <span fxFlex></span>
+  <button md-icon-button aria-label="Quick Panel" (click)="parent.navContainer?.end?.toggle()">
+    <md-icon svgIcon="action:ic_list_24px"></md-icon>
+  </button>  
+</md-toolbar>
 `
 })
 export class AppToolbar implements OnInit {
 
-  public localState: any;
   constructor(
-    public uiRouter: UIRouter
+    public uiRouter: UIRouter,
+    public parent: AppMainPage
   ) {}
 
   public ngOnInit() {
-    /*
-    this.route
-      .data
-      .subscribe((data: any) => {
-        // your resolved data from route
-        this.localState = data.yourData;
-      });
-*/
-    console.log('AppToolbar');
+    console.log('AppToolbar.ngOnInit');
   }
 }

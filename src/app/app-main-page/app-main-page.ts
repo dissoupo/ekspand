@@ -1,40 +1,57 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ViewChild
 } from '@angular/core';
 import {UIRouter} from 'ui-router-ng2';
-import {MdSidenav, MdToolbar, MdButton} from '@angular/material';
+import {MdSidenav, MdToolbar, MdSidenavContainer} from '@angular/material';
 
 @Component({
-  //selector: 'app-main-page',
+  selector: 'ks-main-page',
   styles: [`
   `],
   template: `
-  <div ui-view="navigation"></div>
+<md-sidenav-container #navContainer>
+
+  <md-sidenav #navigation
+      fxLayoutColumn 
+      class="ks-sidenav"
+      tabindex="-1"
+      mode="over"
+      ks-scroll>
+      <div ui-view="navigation"></div>
+  </md-sidenav>
   
-  <div class="xpnd-page-content xpnd-background-light xpnd-column">
-    <div ui-view="toolbar"
-        id="vertical-navigation-toolbar"
-        ng-hide="$ctrl.state.editMode">
-    </div>
-  
-      
+  <div class="ks-page-content ks-background-light ks-column">
+    <div ui-view="toolbar"></div>
+        
     <div ui-view="content"
-        id="vertical-navigation-content"
-        class="xpnd-view xpnd-column xpnd-scrollable"
-        xpnd-scroll
-        ng-hide="$ctrl.state.editMode">
+        class="ks-view ks-column ks-scrollable"
+        ks-scroll>
     </div>
-  
-    <div xpnd-edit-container xpnd-scroll class="xpnd-view xpnd-container xpnd-column xpnd-scrollable" ng-show="$ctrl.state.editMode"></div>
+
+    <!--
+    <div ks-edit-container ks-scroll class="ks-view ks-container ks-column ks-scrollable" ng-show="$ctrl.state.editMode"></div>
+    -->
   </div>
   
-  <div ui-view="quickPanel"></div>
+  <md-sidenav #quickPanel
+      fxLayoutColumn
+      tabindex="-1"
+      class="ks-sidenav"
+      align="end"
+      mode="side"
+      ks-scroll>
+      <div ui-view="quickPanel"></div>
+  </md-sidenav>  
+</md-sidenav-container>
 `
 })
 export class AppMainPage implements OnInit {
 
-  public localState: any;
+  @ViewChild('navContainer') public navContainer: MdSidenavContainer;
+  @ViewChild('navigation') public navigation: MdSidenav;
+  @ViewChild('quickPanel') public quickPanel: MdSidenav;
 
   constructor(
     public uiRouter: UIRouter
@@ -43,14 +60,6 @@ export class AppMainPage implements OnInit {
   }
 
   public ngOnInit() {
-    /*
-    this.route
-      .data
-      .subscribe((data: any) => {
-        // your resolved data from route
-        this.localState = data.yourData;
-      });
-*/
     console.log('AppMainPage.ngOnInit');
   }
 }

@@ -4,14 +4,20 @@
 @import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
 @import 'typography';
 
-html, body, material-app, md-sidenav-container {
+html, body,
+ks-app,
+md-sidenav-container {
   margin: 0;
   width: 100%;
   height: 100%;
   background-color: #fcfcfc;
 }
 
-.xpnd-body {
+:focus {
+  outline: none;
+}
+
+.ks-body {
   margin:0;
   display: flex;
   height:100%;
@@ -19,7 +25,8 @@ html, body, material-app, md-sidenav-container {
   flex-direction: column;
 }
 
-.xpnd-view {
+ks-main-page,
+.ks-view {
   position: relative;
   height:100%;
   //min-height:100%;
@@ -29,15 +36,15 @@ html, body, material-app, md-sidenav-container {
   flex: 1 1 100%;
 }
 
-.xpnd-page-toolbar {
+.ks-page-toolbar {
   color: $page-toolbar-color !important;
   //z-index: 3;
 
-  &.xpnd-brand {
+  &.ks-brand {
     background: $page-toolbar-background-brand !important;
   }
 
-  &.xpnd-edit-mode {
+  &.ks-edit-mode {
     background: $page-toolbar-background-edit !important;
   }
 
@@ -45,7 +52,7 @@ html, body, material-app, md-sidenav-container {
 }
 
 
-md-toolbar.xpnd-page-toolbar {
+md-toolbar.ks-page-toolbar {
   .md-button:not(.md-raised),
   .md-button:not([disabled]) md-icon,
   md-icon {
@@ -54,31 +61,31 @@ md-toolbar.xpnd-page-toolbar {
   }
 }
 
-.xpnd-row {
+.ks-row {
   flex-direction: row;
 }
 
-.xpnd-column {
+.ks-column {
   flex-direction: column;
 }
 
-.xpnd-page-content {
+.ks-page-content {
   display: flex;
   flex-grow: 1;
   overflow: hidden;
 
-  .xpnd-page-panel-left {
+  .ks-page-panel-left {
     width: 304px;
     min-width: 304px;
     max-width: 304px;
   }
 
-  .xpnd-page-panel-right {
+  .ks-page-panel-right {
 
   }
 }
 
-.xpnd-container {
+.ks-container {
   box-sizing: border-box;
   display: flex;
   flex: 1 0 100%;
@@ -95,7 +102,7 @@ md-toolbar.xpnd-page-toolbar {
   }
 }
 
-.xpnd-toolbar-container {
+.ks-toolbar-container {
   @media only screen and (min-width: $layout-breakpoint-lg) {
     min-width: $layout-breakpoint-lg - 4*$baseline-grid;
     max-width: $layout-breakpoint-lg - 4*$baseline-grid;
@@ -103,16 +110,16 @@ md-toolbar.xpnd-page-toolbar {
   }
 }
 
-.xpnd-no-shrink {
+.ks-no-shrink {
   flex-shrink: 0;
 }
 
-.xpnd-cursor-point {
+.ks-cursor-point {
   cursor: pointer;
 }
 
-xpnd-link,
-.xpnd-link {
+ks-link,
+.ks-link {
   cursor: pointer;
   // TODO: ERIC: variable
   color: #006fb2;
@@ -122,13 +129,13 @@ xpnd-link,
   }
 }
 
-.xpnd-glow-z1 {
+.ks-glow-z1 {
   box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.23),
   0 1px 1px 0 rgba(0, 0, 0, 0.14),
   0 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
-.xpnd-sidenav {
+.ks-sidenav {
   width: 272px;
   min-width: 272px;
   max-width: 272px;
@@ -138,17 +145,7 @@ xpnd-link,
   background-color: #f0f0f0;
 }
 
-.xpnd-nav-header {
-  //border-bottom: 1px solid #267ED5;
-  flex-shrink: 0;
-  z-index: 2;
-
-  > md-icon {
-    margin: 0 8px;
-  }
-}
-
-.xpnd-branding {
+.ks-branding {
   display: inline-block;
   padding: $baseline-grid;
 
@@ -168,7 +165,7 @@ xpnd-link,
 }
 
 /*
-.xpnd-splash-background {
+.ks-splash-background {
   background-repeat: no-repeat;
   //background-size: 100% auto;
   background-position: center center;
@@ -196,7 +193,7 @@ xpnd-link,
 }
 */
 
-xpnd-popup-container {
+ks-popup-container {
   display: flex;
   flex: 1 1 0;
   flex-direction: row-reverse;
@@ -217,15 +214,15 @@ xpnd-popup-container {
   }
 }
 
-.xpnd-border-top-light {
+.ks-border-top-light {
   border-top: solid 1px #ededed;
 }
 
-.xpnd-border-bottom-light {
+.ks-border-bottom-light {
   border-bottom: solid 1px #ededed;
 }
 
-.xpnd-whiteframe-2 {
+.ks-whiteframe-2 {
   background-color: #ffffff;
   color: #000000;
   margin-bottom: 16px;
@@ -233,47 +230,47 @@ xpnd-popup-container {
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
-.xpnd-no-errors-spacer {
+.ks-no-errors-spacer {
   .md-errors-spacer {
     min-height: 0 !important;
     display: none;
   }
 }
 
-.xpnd-callout {
+.ks-callout {
   margin: 8px;
   border-radius: 4px;
   border: 1px solid #cfcfcf;
 
-  &:not(.xpnd-xs) {
+  &:not(.ks-xs) {
     padding: 16px;
   }
 
-  &.xpnd-xs {
+  &.ks-xs {
     padding: 8px;
   }
 
-  &.xpnd-callout-info {
+  &.ks-callout-info {
     background-color: rgb(234, 246, 255);
     color: #000000;
   }
 
-  &.xpnd-callout-warn {
+  &.ks-callout-warn {
     background-color: rgb(255, 235, 225);
     color: #000000;
   }
 }
 
-.xpnd-help {
+.ks-help {
   margin: 8px;
   color: blue;
 
-  &:not(.xpnd-xs) {
+  &:not(.ks-xs) {
     padding: 16px;
     font-size: small;
   }
 
-  &.xpnd-xs {
+  &.ks-xs {
     padding: 8px;
     font-size: x-small;
   }
