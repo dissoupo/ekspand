@@ -4,6 +4,8 @@ import {
   ViewChild
 } from '@angular/core';
 import {UIRouter} from 'ui-router-ng2';
+import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
+
 import {MdSidenav, MdToolbar, MdSidenavContainer} from '@angular/material';
 
 @Component({
@@ -17,19 +19,17 @@ import {MdSidenav, MdToolbar, MdSidenavContainer} from '@angular/material';
       fxLayoutColumn 
       class="ks-sidenav"
       tabindex="-1"
-      mode="over"
-      ks-scroll>
-      <div ui-view="navigation"></div>
+      mode="over">
+        <div ui-view="navigation"></div>
   </md-sidenav>
   
   <div class="ks-page-content ks-background-light ks-column">
     <div ui-view="toolbar"></div>
-        
-    <div ui-view="content"
-        class="ks-view ks-column ks-scrollable"
-        ks-scroll>
-    </div>
 
+    <div ui-view="content"
+      class="ks-view ks-column ks-scrollable">
+    </div>
+    
     <!--
     <div ks-edit-container ks-scroll class="ks-view ks-container ks-column ks-scrollable" ng-show="$ctrl.state.editMode"></div>
     -->
@@ -40,9 +40,8 @@ import {MdSidenav, MdToolbar, MdSidenavContainer} from '@angular/material';
       tabindex="-1"
       class="ks-sidenav"
       align="end"
-      mode="side"
-      ks-scroll>
-      <div ui-view="quickPanel"></div>
+      mode="side">
+    <div ui-view="quickPanel"></div>
   </md-sidenav>  
 </md-sidenav-container>
 `

@@ -30,16 +30,21 @@ import {AppMainPage} from '../app-main-page';
     }
 `],
   template: `
-    <header><md-icon svgIcon="brand"></md-icon> Ekspand</header>
-
-    <md-list>
-      <a *ngFor="let menu of appMenu"
-        md-list-item
-        (click)="parent.navContainer?.start?.close()"
-        uiSref="{{menu.route}}"> 
-        <md-icon svgIcon="{{menu.icon}}"></md-icon> {{menu.title}}
-      </a>
-    </md-list>
+    <div class="ks-container-vertical">
+      <header><md-icon svgIcon="brand"></md-icon> Ekspand</header>
+      <div class="ks-scrollable">
+      <perfect-scrollbar class="ks-scrollbar-element">
+        <md-list>
+          <a *ngFor="let menu of appMenu"
+            md-list-item
+            (click)="parent.navContainer?.start?.close()"
+            uiSref="{{menu.route}}"> 
+            <md-icon svgIcon="{{menu.icon}}"></md-icon> {{menu.title}}
+          </a>
+        </md-list>
+      </perfect-scrollbar>
+    </div>
+    </div>
 `
 })
 export class AppNavigation implements OnInit {

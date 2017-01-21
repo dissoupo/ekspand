@@ -2,6 +2,7 @@
 /* This file is for setting global styles  */
 @import 'variables';
 @import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+@import '~perfect-scrollbar/dist/css/perfect-scrollbar.css';
 @import 'typography';
 
 html, body,
@@ -13,6 +14,9 @@ md-sidenav-container {
   background-color: #fcfcfc;
 }
 
+//
+// Disable outline on Chrome
+//
 :focus {
   outline: none;
 }
@@ -69,20 +73,13 @@ md-toolbar.ks-page-toolbar {
   flex-direction: column;
 }
 
-.ks-page-content {
+.ks-container-vertical {
   display: flex;
-  flex-grow: 1;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
   overflow: hidden;
-
-  .ks-page-panel-left {
-    width: 304px;
-    min-width: 304px;
-    max-width: 304px;
-  }
-
-  .ks-page-panel-right {
-
-  }
+  max-height: calc(100vh - 0px);
 }
 
 .ks-container {
@@ -144,54 +141,6 @@ ks-link,
   // TODO: ERIC: variable
   background-color: #f0f0f0;
 }
-
-.ks-branding {
-  display: inline-block;
-  padding: $baseline-grid;
-
-  > img {
-    text-align: center;
-    margin: auto;
-
-    // TODO: media query because $toolbar-height is changing
-    max-height: $toolbar-height - 2 * $baseline-grid;
-    max-width: $toolbar-height - 2 * $baseline-grid;
-  }
-
-  > span {
-    margin-left: $baseline-grid;
-    line-height: $toolbar-height;
-  }
-}
-
-/*
-.ks-splash-background {
-  background-repeat: no-repeat;
-  //background-size: 100% auto;
-  background-position: center center;
-  background-size: cover;
-
-  // Handle mobile portrait
-  @media only screen and (min-width: 0) and (max-width: $layout-breakpoint-sm) and (orientation: portrait) {
-    background-image: url(#{$imagePath}/splash-sm.jpg);
-  }
-
-  // Handle mobile landscape
-  @media only screen and (min-width: 0) and (max-width: $layout-breakpoint-sm) and (orientation: landscape) {
-    background-image: url(#{$imagePath}/splash-md.jpg);
-  }
-
-  // SM - LG
-  @media only screen and (min-width: $layout-breakpoint-sm) and (max-width: $layout-breakpoint-lg) {
-    background-image: url(#{$imagePath}/splash-md.jpg);
-  }
-
-  // LG+
-  @media only screen and (min-width: $layout-breakpoint-lg) {
-    background-image: url(#{$imagePath}/splash-lg.jpg);
-  }
-}
-*/
 
 ks-popup-container {
   display: flex;
@@ -274,4 +223,28 @@ ks-popup-container {
     padding: 8px;
     font-size: x-small;
   }
+}
+
+.ks-scrollable {
+  flex: 1 1 auto;
+  display: flex;
+  position: relative;
+
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &.only-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  &.only-y {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.ks-scrollbar-element {
+  flex: 1 1 auto;
 }

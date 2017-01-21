@@ -26,8 +26,10 @@ import {
   UIView,
   UIRouter
 } from 'ui-router-ng2';
-
-import 'hammerjs';
+import {
+  PerfectScrollbarModule,
+  PerfectScrollbarConfigInterface
+} from 'angular2-perfect-scrollbar';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -88,6 +90,10 @@ export class MyRootUIRouterConfig {
 }
 */
 
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
+
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -109,6 +115,7 @@ export class MyRootUIRouterConfig {
     MdIconModule,
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
+    PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
     UIRouterModule.forRoot({
       states: [
         {
@@ -206,5 +213,4 @@ export class AppModule {
     store.disposeOldHosts();
     delete store.disposeOldHosts;
   }
-
 }
